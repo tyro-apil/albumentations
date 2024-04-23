@@ -1,0 +1,32 @@
+
+2. horizontal_flip - x
+
+4. pixel dropout: - x
+	dropout_prob: 0.01
+	per_channel: 0
+	drop_value:
+		red: 0
+		green: 100
+		blue: 0
+5. multiplicative noise: - x
+	multiplier: 0.55-1.2
+	perchannel and elementwise: true
+6. Sharpen - x
+	alpha: 0.15-0.50
+	lightness: 1.04 - 2.01
+7. RandomBrightnessContrast -x 
+	brightness_limit: -0.2 to 0.2
+	contrast_limit: -0.2 to 0.33
+	brightness_by_max: True
+8. OpticalDistortion:		- x
+	distort_limit: -0.30 to 0.35
+	shift_limit: -0.05 to 0.10
+	interpolation: 1
+	border_mode: 1
+	value:
+		r:0, g:0, b:0
+9. Motion Blur:		- x
+	blur_limit: 1-7
+10. Median Blur:	- x
+	blur_limit: 1-7
+
