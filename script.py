@@ -44,10 +44,20 @@ for i, img_file in enumerate(img_files):
   transform = A.Compose(
     [
       A.HorizontalFlip(p=0.8),
-      A.VerticalFlip(p=0.2),
+      A.SomeOf([
+        A.OneOf([
+        A.MotionBlur(blur_limit=(3,7), p=0.5),
+        A.MedianBlur(blur_limit=(3,7), p=0.5)
+      ], p=0.50),
+      A.OpticalDistortion(distort_limit=(-0.30, 0.35), shift_limit=(-0.05,0.10), p=0.15),
       A.OneOf([
-        A.Blur(blur_limit=5, p=0.5),
-        A.MotionBlur(blur_limit=5, p=0.8)
+        A.PixelDropout(p=0.3),
+        A.MultiplicativeNoise(multiplier=(0.55, 1.2), per_channel=True, elementwise=True, p=0.5)
+      ], p=0.66),
+      A.OneOf([
+        A.Sharpen(alpha=(0.15, 0.50), lightness=(1.04, 2.01), p=0.33),
+        A.RandomBrightnessContrast(p=0.33)
+      ], p=0.5),
       ], p=1.0)
     ], bbox_params=A.BboxParams(format='yolo',  min_visibility=0.33, min_area=2500., label_fields=['category_ids'])
   ) 
