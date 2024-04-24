@@ -25,7 +25,7 @@ transform = A.Compose(
 )  
 
 
-for i, img_file in enumerate(img_files):
+for img_file in img_files:
 
   # Split the filename and extension
   file_name, file_extension = os.path.splitext(img_file)

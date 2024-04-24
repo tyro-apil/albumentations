@@ -1,4 +1,5 @@
 import os
+import numpy as np
 
 IMAGE_DIR = 'images'
 LABEL_DIR = 'labels'
@@ -19,6 +20,8 @@ def extract_labels(label_path):
     print(parts)
     class_num = parts[0]
     bbox_coordinates = [float(part) for part in parts[1:]]
+    bbox_coordinates[2] = np.abs(bbox_coordinates[2] - 0.5 / 640)
+    bbox_coordinates[3] = np.abs(bbox_coordinates[3] - 0.5 / 480)
 
     category_ids.append(class_num)
     bboxes.append(bbox_coordinates) 
