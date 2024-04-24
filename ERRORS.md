@@ -12,3 +12,7 @@
     ``` [2,1] ```
 
     ***Solution***: [official_docs for bbox augmentation](https://albumentations.ai/docs/getting_started/bounding_boxes_augmentation/)
+
+2. **Yolo bboxes out of bound after augmentation by albumentations**
+    
+    ***Solution***: [github_issues](https://github.com/albumentations-team/albumentations/issues/862)
